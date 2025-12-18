@@ -93,8 +93,7 @@ extern NSString* const GCDWebServerRequestAttribute_RegexCaptures;
  *
  *  @warning GCDWebServerRequest instances can be created and used on any GCD thread.
  */
-GCD_SWIFT_UNCHECKED_SENDABLE
-@interface GCDWebServerRequest : NSObject <GCDWebServerBodyWriter>
+@interface GCDWebServerRequest GCD_SWIFT_UNCHECKED_SENDABLE : NSObject <GCDWebServerBodyWriter>
 
 /**
  *  Returns the HTTP method for the request.
