@@ -32,6 +32,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#if __has_attribute(swift_attr)
+#define GCD_SWIFT_SENDABLE __attribute__((swift_attr("@Sendable")))
+#else
+#define GCD_SWIFT_SENDABLE
+#endif
+
 /**
  *  The GCDWebServerMatchBlock is called for every handler added to the
  *  GCDWebServer whenever a new HTTP request has started (i.e. HTTP headers have
@@ -66,7 +72,7 @@ typedef GCDWebServerResponse* _Nullable (^GCDWebServerProcessBlock)(__kindof GCD
  *  It's however recommended to return a GCDWebServerErrorResponse on error so more
  *  useful information can be returned to the client.
  */
-typedef void (^GCDWebServerCompletionBlock)(GCDWebServerResponse* _Nullable response);
+typedef void (^GCD_SWIFT_SENDABLE GCDWebServerCompletionBlock)(GCDWebServerResponse* _Nullable response);
 typedef void (^GCDWebServerAsyncProcessBlock)(__kindof GCDWebServerRequest* request, GCDWebServerCompletionBlock completionBlock);
 
 /**
