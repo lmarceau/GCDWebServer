@@ -34,8 +34,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 #if __has_attribute(swift_attr)
 #define GCD_SWIFT_SENDABLE __attribute__((swift_attr("@Sendable")))
+#define GCD_SWIFT_UNCHECKED_SENDABLE __attribute__((swift_attr("@unchecked Sendable")))
 #else
 #define GCD_SWIFT_SENDABLE
+#define GCD_SWIFT_UNCHECKED_SENDABLE
 #endif
 
 /**
@@ -48,6 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  GCDWebServerRequest instance created with the same basic info.
  *  Otherwise, it simply returns nil.
  */
+
+GCD_SWIFT_UNCHECKED_SENDABLE
 typedef GCDWebServerRequest* _Nullable (^GCDWebServerMatchBlock)(NSString* requestMethod, NSURL* requestURL, NSDictionary<NSString*, NSString*>* requestHeaders, NSString* urlPath, NSDictionary<NSString*, NSString*>* urlQuery);
 
 /**
