@@ -50,9 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  GCDWebServerRequest instance created with the same basic info.
  *  Otherwise, it simply returns nil.
  */
-
-GCD_SWIFT_UNCHECKED_SENDABLE
-typedef GCDWebServerRequest* _Nullable (^GCDWebServerMatchBlock)(NSString* requestMethod, NSURL* requestURL, NSDictionary<NSString*, NSString*>* requestHeaders, NSString* urlPath, NSDictionary<NSString*, NSString*>* urlQuery);
+typedef GCDWebServerRequest* GCD_SWIFT_UNCHECKED_SENDABLE _Nullable (^GCDWebServerMatchBlock)(NSString* requestMethod, NSURL* requestURL, NSDictionary<NSString*, NSString*>* requestHeaders, NSString* urlPath, NSDictionary<NSString*, NSString*>* urlQuery);
 
 /**
  *  The GCDWebServerProcessBlock is called after the HTTP request has been fully
